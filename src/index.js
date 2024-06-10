@@ -1,13 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import '@fontsource/nunito';
 import reportWebVitals from './reportWebVitals';
+import DaftarTimeSheet from './views/DaftarTimeSheet';
+import { ChakraProvider,extendTheme } from '@chakra-ui/react'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const theme = extendTheme({
+  colors: {
+    custom: {
+      lightBlue: '#F0F6FF',
+      blue: '#2775EC',
+      red: '#F15858'
+    }
+  },
+  fonts: {
+    body: `'nunito', sans-serif`,
+  },
+  styles: {
+    global: {
+      body: {
+        bg: "#F7F8FB", // Ganti dengan warna latar belakang yang Anda inginkan
+      },
+    },
+  },
+});
 root.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+      <DaftarTimeSheet />
+    </ChakraProvider>
   </React.StrictMode>
 );
 
